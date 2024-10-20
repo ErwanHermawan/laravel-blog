@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Model;
+
+class Post
+{
+  private static $blog_posts = [
+    [
+      'title' => 'First Post Title',
+      'slug' => 'first-post-title',
+      'author' => 'Admin',
+      'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quo nisi, sed temporibus voluptatum ipsam ad! Soluta similique et quo asperiores incidunt animi eos cum minima tempora expedita eligendi quisquam, eius recusandae molestiae id consequatur accusamus aperiam laborum quas, nulla quasi. Quidem minima repellendus repellat consequuntur assumenda, laudantium aut pariatur!'
+    ],
+    [
+      'title' => 'Second Post Title',
+      'slug' => 'second-post-title',
+      'author' => 'Admin',
+      'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quo nisi, sed temporibus voluptatum ipsam ad! Soluta similique et quo asperiores incidunt animi eos cum minima tempora expedita eligendi quisquam, eius recusandae molestiae id consequatur accusamus aperiam laborum quas, nulla quasi. Quidem minima repellendus repellat consequuntur assumenda, laudantium aut pariatur!'
+    ],
+  ];
+
+  public static function all()
+  {
+    return collect(self::$blog_posts);
+  }
+
+  public static function find($slug)
+  {
+    $posts =  static::all();
+    return $posts->firstWhere('slug', $slug);
+  }
+}
