@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<h2>All Posts</h2>
+<h2>{{$title}}</h2>
 <div class="row row-cols-2 g-4">
   @foreach ($posts as $post )
     <div class="col-12">
