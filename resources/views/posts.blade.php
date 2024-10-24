@@ -34,6 +34,9 @@
   @foreach ($posts->skip(1) as $post )
   <div class="col-4">
     <article class="card">
+      <div class="position-absolute px-3 py-2" style="background-color: rgba(0,0,0,0.7)">
+        <a href="/categories/{{$post->category->slug}}" class="text-white text-decoration-none">{{$post->category->name}}</a>
+      </div>
       <img src="https://picsum.photos/id/1/200/100" class="card-img-top" alt="{{$post->category->name}}">
       <div class="card-body">
         <a href="/posts/{{$post->slug}}" class="card-link text-decoration-none">
